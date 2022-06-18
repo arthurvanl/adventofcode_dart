@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import '../../utils/input.dart';
 
 void main() {
@@ -10,7 +8,7 @@ void main() {
 }
 
 List<dynamic> getLines() {
-  List<dynamic> lines = readLinesAsString(2);
+  List<dynamic> lines = readLinesAsString(2, 2021);
 
   // removing falsey values
   lines.removeWhere((x) => ["", null, false, 0].contains(x));
