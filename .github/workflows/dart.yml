@@ -1,20 +1,16 @@
 name: Dart
 
-on: 
+on:
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
 
 jobs:
-  test:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-        sdk: [stable, beta, dev]
+  build:
+    runs-on: ubuntu-latest
 
-    steps: 
+    steps:
       - uses: actions/checkout@v2
       - uses: dart-lang/setup-dart@v1.3
 
@@ -25,4 +21,4 @@ jobs:
         run: dart analyze
 
       - name: Test file
-        run: dart .\lib\test.dart
+        run: dart lib/test.dart
