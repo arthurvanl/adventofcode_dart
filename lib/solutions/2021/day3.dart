@@ -59,4 +59,41 @@ void part1(List<dynamic> lines) {
   print("Answer part 1: $powerComsumption");
 }
 
-void part2(lines) {}
+void part2(lines) {
+  List<String> o2_array = lines;
+
+  List<String> co2_array = lines;
+
+  for (int i = 0; i < o2_array[0].length; i++) {
+    var zeros = o2_array.where((x) => x[i] == '0').toList();
+    var ones = o2_array.where((x) => x[i] == '1').toList();
+
+    if (zeros.length > ones.length)
+      o2_array = zeros;
+    else if (ones.length > zeros.length)
+      o2_array = ones;
+    else if (ones.length == zeros.length) o2_array = ones;
+
+    if (o2_array.length == 1) i = o2_array[0].length;
+  }
+
+  int o2_gen = int.parse(o2_array[0], radix: 2);
+
+  for (int i = 0; i < co2_array[0].length; i++) {
+    var zeros = co2_array.where((x) => x[i] == '0').toList();
+    var ones = co2_array.where((x) => x[i] == '1').toList();
+
+    if (zeros.length < ones.length)
+      co2_array = zeros;
+    else if (ones.length < zeros.length)
+      co2_array = ones;
+    else if (ones.length == zeros.length) co2_array = zeros;
+
+    if (co2_array.length == 1) i = co2_array[0].length;
+  }
+
+  int co2_scrub = int.parse(co2_array[0], radix: 2);
+  int lifeSupportRate = (o2_gen * co2_scrub);
+  
+  print("Answer part 2: $lifeSupportRate");
+}
