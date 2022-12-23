@@ -5,8 +5,12 @@ import '../../utils/input.dart';
 void main() {
   List<int> lines = getLines();
 
+  final before = DateTime.now();
+
   part1(lines);
   part2(lines);
+
+  print("Code runned in ${DateTime.now().millisecond - before.millisecond}ms");
 }
 
 List<int> getLines() {
