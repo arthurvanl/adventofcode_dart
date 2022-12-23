@@ -25,4 +25,4 @@ jobs:
         run: dart analyze
 
       - name: Test file
-        run: dart lib/test.dart
+        run: dart src/test.dart
