@@ -1,4 +1,4 @@
-import 'package:adventofcode/utils/input.dart';
+import '../../utils/input.dart';
 
 void main() {
   List<String> lines = getLines();
@@ -8,7 +8,8 @@ void main() {
 }
 
 List<String> getLines() {
-  List<String> lines = readLinesAsString(3, 2021);
+  List<String> lines = readLinesAsString(1, 2021).split("\n").toList();
+  lines.removeWhere((x) => ["", null, false, 0].contains(x));
 
   // removing falsey values
   lines.removeWhere((x) => ["", null, false, 0].contains(x));
@@ -94,6 +95,6 @@ void part2(lines) {
 
   int co2_scrub = int.parse(co2_array[0], radix: 2);
   int lifeSupportRate = (o2_gen * co2_scrub);
-  
+
   print("Answer part 2: $lifeSupportRate");
 }

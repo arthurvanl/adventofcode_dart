@@ -8,7 +8,8 @@ void main() {
 }
 
 List<dynamic> getLines() {
-  List<dynamic> lines = readLinesAsString(2, 2021);
+  List<dynamic> lines = readLinesAsString(1, 2021).split("\n").toList();
+  lines.removeWhere((x) => ["", null, false, 0].contains(x));
 
   // removing falsey values
   lines.removeWhere((x) => ["", null, false, 0].contains(x));
